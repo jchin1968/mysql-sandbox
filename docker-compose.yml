@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  # MySQL server
+  mysql:
+    platform: linux/amd64
+    image: mysql:5.7
+    container_name: mysql
+    hostname: mysql.docker
+    command: --default-authentication-plugin=mysql_native_password 
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - './data:/home'
+      - '.mysql:/var/lib/mysql'
+      - '.logs:/var/log'
+      - './custom.cnf:/etc/mysql/conf.d/custom.cnf'
+    ports:
+      - 33060:3306
+
+  # phpMyAdmin
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080

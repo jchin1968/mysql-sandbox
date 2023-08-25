@@ -1,0 +1,17 @@
+# Ignore anything inside local ./data folder that is mapped to the container /home folder
+data/
+
+# Ignore mysql managed database files 
+.mysql
+.logs
+
+# Ignore any sql dump files, backups, archives, etc.
+*.sql
+*.zip
+*.gz
+*.tgz
+*.bak
+
+# Ignore other miscellaneous files
+.DS_Store
+.idea

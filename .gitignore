@@ -2,8 +2,8 @@
 data/
 
 # Ignore mysql managed database files 
-.mysql
-.logs
+.mysql/*
+.logs/*
 
 # Ignore any sql dump files, backups, archives, etc.
 *.sql

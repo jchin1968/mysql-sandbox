@@ -1,0 +1,5 @@
+[mysqld]
+max_allowed_packet = 33554432
+slow_query_log = 1
+slow_query_log_file = /var/log/slow-queries.log
+long_query_time = 1

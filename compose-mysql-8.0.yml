@@ -1,0 +1,19 @@
+version: '3.1'
+services:
+  # MySQL 8.0
+  mysql80:
+    platform: linux/amd64
+    image: mysql:8.0
+    container_name: mysql80
+    hostname: mysql80.docker
+    command: --default-authentication-plugin=mysql_native_password 
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+    volumes:
+      - './data:/home'
+      - '.mysql/8.0:/var/lib/mysql'
+      - '.logs/8.0:/var/log'
+      - './config/8.0:/etc/mysql/conf.d'
+    ports:
+      - 30680:3306
+      

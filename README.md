@@ -14,7 +14,20 @@ cd mysql-sandbox
 docker-compose up -d
 ```
 
-That's it! You can use the following credentials to access the different servers:
+## Resource Friendly Setup
+Unless you're migrating from MySQL 5.7 to 8.0 or you're comparing the two versions, you do not need to have both servers running. Nor do you need to have phpMyAdmin running if you're comfortable using the MySQL command line or you have a DB editor already built into your IDE. 
+
+So, to save on disk storage and memory usage, you can edit the docker-compose.yml file and simply comment out the unneccessary server configuration line. For example:
+
+```
+include:
+# - compose-mysql-5.7.yml
+ - compose-mysql-8.0.yml
+# - compose-adminer.yml
+``` 
+
+# Usage
+Once your docker container(s) is/are running you can use the following credentials to access the different services:
 - MySQL 5.7
   - Host: localhost
   - Port: 30657
@@ -27,4 +40,5 @@ That's it! You can use the following credentials to access the different servers
   - Password: test
 - phpMyAdmin
   - Host: http://localhost:8080
+
 

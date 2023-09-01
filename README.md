@@ -14,7 +14,7 @@ cd mysql-sandbox
 docker-compose up -d
 ```
 
-## Resource Friendly Setup
+## Resource Friendlier Setup
 Unless you're migrating from MySQL 5.7 to 8.0 or you're comparing the two versions, you do not need to have both servers running. Nor do you need to have phpMyAdmin running if you're comfortable using the MySQL command line or you have a DB editor already built into your IDE. 
 
 So, to save on disk storage and memory usage, you can edit the docker-compose.yml file and simply comment out the unneccessary server configuration line. For example:
@@ -26,8 +26,39 @@ include:
 # - compose-adminer.yml
 ``` 
 
+## Custom MySQL Configurations
+Create a MySQL cnf file and place in either ./config/5.7 or ./config/8.0 folders
+
 # Usage
-Once your docker container(s) is/are running you can use the following credentials to access the different services:
+Once your docker container(s) is/are running you can connect to the database server using a number of ways.
+
+## Command Line
+The MySQL server includes a command line client which you can access using the docker command ```ddocker exec -it [CONTAINER_NAME] mysql -uroot -ptest [DB_NAME]``` where:
+- CONTAINER_NAME is mysql57 or mysql80
+- and DB_NAME is an optional value
+
+Example:
+```
+docker exec -it mysql80 mysql -uroot -ptest demo
+```
+
+## phpMyAdmin
+MySQL Sandbox includes phpMyAdmin which is a web-based database client that supports MySQL plus a number of other databases like Postgres and SQLite. To use phpMyAdmin, http://localhost:8080 on your browser and use the following credential depending on the MySQL version:
+
+- MySQL 5.7
+  - Host: mysql57.docker 
+  - Port: 3306
+  - User: root
+  - Password: test
+- MySQL 8.0
+  - Host: mysql80.docker
+  - Port: 3306
+  - User: root
+  - Password: test
+
+## Installed Host Database Client/Editor
+If you have a database client or editor (i.e. DBeaver, Toad, JetBrain IDE) already installed on your host computer, use the following credentials:
+
 - MySQL 5.7
   - Host: localhost
   - Port: 30657
@@ -38,7 +69,3 @@ Once your docker container(s) is/are running you can use the following credentia
   - Port: 30680
   - User: root
   - Password: test
-- phpMyAdmin
-  - Host: http://localhost:8080
-
-

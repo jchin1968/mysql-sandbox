@@ -43,7 +43,7 @@ docker exec -it mysql80 mysql -uroot -ptest demo
 ```
 
 ## phpMyAdmin
-MySQL Sandbox includes phpMyAdmin which is a web-based database client that supports MySQL plus a number of other databases like Postgres and SQLite. To use phpMyAdmin, http://localhost:8080 on your browser and use the following credential depending on the MySQL version:
+MySQL Sandbox includes phpMyAdmin, a web-based database client. To use phpMyAdmin, go to http://localhost:8080 on your host computer browser and use the following credentials depending on the MySQL version:
 
 - MySQL 5.7
   - Host: mysql57.docker 
@@ -69,3 +69,5 @@ If you have a database client or editor (i.e. DBeaver, Toad, JetBrain IDE) alrea
   - Port: 30680
   - User: root
   - Password: test
+
+
